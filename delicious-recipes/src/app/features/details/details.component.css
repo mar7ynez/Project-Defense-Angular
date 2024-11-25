@@ -1,0 +1,176 @@
+/* Set .details-card to full height of the viewport */
+.details-card {
+    /* margin: 15px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 25px;
+    /* background-color: rgba(27, 26, 26, 0.89); */
+    background-image: url('../../../assets/images/detailsBack.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    box-sizing: border-box;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.card-img-top {
+    width: 650px;
+    height: 350px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: 2px solid rgba(173, 149, 132, 0.945);
+    box-shadow: 0px 0px 8px;
+}
+
+.card-title {
+    text-align: center;
+    padding: 20px;
+}
+
+h2.card-title {
+    letter-spacing: 8px;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.76);
+    border-radius: 5px;
+    max-width: 900px;
+}
+
+.card-title {
+    font-family: "Unica One", serif;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 24px;
+}
+
+.card-body {
+    line-height: 25px;
+}
+
+.card-text {
+    color: rgba(255, 255, 255, 0.76);
+    font-family: "Montserrat", sans-serif;
+    max-width: 900px;
+    font-size: 17px;
+    padding: 20px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    line-height: 24px;
+}
+
+.ingredient-list {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 20px;
+    text-indent: 20px;
+    margin: 20px;
+    letter-spacing: 2px;
+}
+
+.detail-buttons {
+    display: flex;
+    /* margin-bottom: 10px; */
+    border-bottom: 5px solid rgba(255, 255, 255, 0.76);
+    border-radius: 5px;
+}
+
+.edit-btn,
+.delete-btn,
+.like-btn {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin: 10px;
+    background-color: rgb(236, 162, 23);
+    border-radius: 8px;
+    border: 1px solid rgba(196, 207, 221, 0.767);
+    position: relative;
+    border: none;
+    font-size: 13px;
+    color: #FFFFFF;
+    padding: 10px 22px;
+    /* width: 200px; */
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: rgb(233, 50, 50);
+}
+
+.like-btn {
+    background-color: rgb(84, 114, 179);
+}
+
+.edit-btn:hover {
+    box-shadow: 1px 1px 1px #292626;
+    background-color: rgb(196, 130, 8);
+}
+
+.delete-btn:hover {
+    box-shadow: 1px 1px 1px #292626;
+    background-color: rgb(202, 39, 39);
+}
+
+.like-btn:hover {
+    box-shadow: 1px 1px 1px #292626;
+    background-color: rgb(59, 97, 177);
+}
+
+.edit-btn:after,
+.delete-btn:after,
+.like-btn:after {
+    content: "";
+    background: #bbb49f;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.edit-btn:active:after,
+.delete-btn:active:after,
+.like-btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+.like-counter {
+    justify-items: center;
+    margin-bottom: 20px;
+    background: rgb(233, 50, 50);
+    max-width: 60px;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+.like-counter>h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .card-img-top {
+        width: 100%;
+    }
+}
+
+@media (max-width: 390px) {
+    .card-img-top {
+        height: 250px;
+    }
+}
