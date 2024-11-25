@@ -1,0 +1,30 @@
+<form class="auth-form">
+    <div class="fields-wrapper">
+        <h2>{{isLoginMode ? 'Login' : 'Register'}}</h2>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+
+        @if (!isLoginMode) {
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
+        }
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+
+        @if (!isLoginMode) {
+        <label for="rePass">Confirm Password</label>
+        <input type="password" id="rePass" name="rePass">
+        }
+
+        <button type="submit">{{isLoginMode ? 'Log in' : 'Register'}}</button>
+
+        <div class="switch-links">
+            <p>{{isLoginMode ? "Don't have an account?" : "Already have an account?"}}</p>
+            <a [routerLink]="isLoginMode ? '/register' : '/login'">
+                {{isLoginMode ? 'Register' : 'Login'}}
+            </a>
+        </div>
+    </div>
+</form>
