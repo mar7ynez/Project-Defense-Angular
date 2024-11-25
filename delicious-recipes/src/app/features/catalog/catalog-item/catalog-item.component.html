@@ -1,0 +1,8 @@
+<div class="card-wrapper">
+    @for (recipe of allRecipes; track $index){
+    <div [routerLink]="['/', recipe._id, 'details']" class="catalog-card">
+        <img class="recipe-image" src={{recipe.imageUrl}} alt={{recipe.recipeTitle}}>
+        <h3 class="recipe-heading">{{recipe.recipeTitle}}</h3>
+    </div>
+    }
+</div>

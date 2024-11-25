@@ -1,0 +1,71 @@
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* gap: 40px;
+    margin: 100px; */
+}
+
+.card-wrapper>div {
+    padding: 30px;
+}
+
+.catalog-card {
+    height: 240px;
+    width: 100%;
+    max-width: 300px;
+    /* padding: 20px; */
+    /* background-color: rgba(244, 246, 248, 0.712); */
+    /* border: 1px solid #72707018; */
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.catalog-card img.recipe-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 8px;
+}
+
+.catalog-card h3.recipe-heading {
+    font-family: "Unica One", serif;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.918);
+    font-size: 24px;
+    text-align: left;
+}
+
+.catalog-card:hover>img,
+.catalog-card:hover>h3 {
+    cursor: pointer;
+    text-decoration: underline 1px rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+}
+
+@media (max-width: 768px) {
+    .catalog-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .catalog-card h3.recipe-heading {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-card {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .catalog-card h3.recipe-heading {
+        font-size: 1em;
+    }
+}
