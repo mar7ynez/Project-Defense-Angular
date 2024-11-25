@@ -1,0 +1,35 @@
+<div class="form-background">
+    <form [formGroup]="createAndEditForm" class="form" (ngSubmit)="handleSubmit()">
+        <div class="fields-wrapper">
+            <h2>{{isEditMode ? 'Edit Recipe': 'Create Recipe'}}</h2>
+
+            <label for="title">Recipe</label>
+            <input type="text" id="title" formControlName="recipeTitle">
+
+            <label for="ingredients">Ingredients</label>
+            <div formArrayName="ingredients" class="ingredients-list">
+                @for (ingredient of ingredients.controls; track ingredient; let i = $index) {
+                <div class="ingredient-pair" id="ingredients" [formGroupName]="i">
+                    <input type="text" placeholder="Ingredient Name" formControlName="ingredientName">
+                    <input type="text" placeholder="Quantity" formControlName="ingredientQuantity">
+                </div>
+                }
+            </div>
+            <div class="add-remove-wrapper">
+                <button class="addIngredient" type="button" (click)="addIngredient()">Add</button>
+                <button class="removeIngredient" type="button" (click)="removeIngredient()">Del</button>
+            </div>
+
+            <label for="imageUrl">Image URL</label>
+            <input type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl">
+
+            <label for="duration">Duration</label>
+            <input type="text" id="duration" name="duration" formControlName="duration">
+
+            <label for="directions">Directions</label>
+            <textarea id="directions" type="text" name="directions" formControlName="directions"></textarea>
+
+            <button class="form-submit">{{isEditMode ? 'Edit': 'Create'}}</button>
+        </div>
+    </form>
+</div>

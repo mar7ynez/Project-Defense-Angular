@@ -1,0 +1,149 @@
+.form-background {
+    background-image: url('../../../assets/images/cback.PNG');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    box-sizing: border-box;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.form {
+    /* background: rgb(183,183,194); */
+    background: linear-gradient(180deg, rgba(183, 183, 187, 0.315) 0%, rgba(183, 183, 187, 0.096) 50%, rgba(183, 183, 187, 0.315) 100%);
+    display: flex;
+    justify-content: center;
+    padding: 200px 0;
+}
+
+.fields-wrapper {
+    background: linear-gradient(52deg, rgb(59, 71, 73) 0%, rgb(29, 89, 102) 54%, rgb(228, 235, 235) 89%);
+
+    justify-items: center;
+    max-width: 400px;
+    border: 1px solid rgb(163, 128, 128);
+    border-radius: 5px;
+    padding: 70px 170px 140px;
+    box-shadow: 0px 0px 5px;
+    height: fit-content;
+}
+
+.fields-wrapper>h2 {
+    letter-spacing: 1px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.fields-wrapper>input,
+.fields-wrapper>textarea,
+.ingredient-pair>input {
+    padding: 2px;
+    width: 100%;
+    max-width: 394px;
+    max-height: 150px;
+    height: 35px;
+    font-size: 16px;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    border: none;
+    background-color: rgba(240, 248, 255, 0.815);
+}
+
+.ingredient-pair {
+    display: flex;
+}
+
+.ingredient-pair>input {
+    width: 100%;
+    margin-right: 2px;
+}
+
+.removeIngredient {
+    margin-left: 4px;
+    width: 50px;
+    height: 28px;
+    background: linear-gradient(315deg, rgba(219, 16, 31, 1) 0%, rgb(182, 85, 91) 55%, rgba(219, 16, 31, 1) 100%);
+    border-radius: 4px;
+    border: none;
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.removeIngredient:hover {
+    background: linear-gradient(315deg, rgba(219, 16, 31, 1) 0%, rgba(182, 85, 92, 1) 5%, rgba(219, 16, 31, 1) 100%);
+}
+
+.add-remove-wrapper {
+    margin-block: -30px;
+    margin-bottom: 15px;
+}
+
+.addIngredient {
+    width: 50px;
+    height: 28px;
+    font-size: 15px;
+    background: linear-gradient(315deg, rgba(18, 96, 65, 1) 0%, rgba(85, 182, 109, 1) 49%, rgba(18, 96, 65, 1) 100%);
+    border: none;
+    border-radius: 4px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.addIngredient:hover {
+    background: linear-gradient(315deg, rgba(18, 96, 65, 1) 0%, rgba(85, 182, 109, 1) 5%, rgba(18, 96, 65, 1) 100%);
+}
+
+.fields-wrapper>label {
+    letter-spacing: 2px;
+    font-size: 18px;
+    padding: 2px;
+}
+
+.fields-wrapper>h2,
+.fields-wrapper>label,
+.fields-wrapper>button,
+.no-account {
+    font-family: "Montserrat", sans-serif;
+}
+
+.fields-wrapper>.form-submit {
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 10px;
+    padding-right: 65px;
+    padding-left: 65px;
+    border-radius: 4px;
+    border: none;
+    background: linear-gradient(270deg, rgb(141, 222, 228) 23%, rgba(9, 171, 232, 1) 50%, rgba(124, 217, 224, 1) 77%);
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    width: 100%;
+    max-width: 405px;
+}
+
+.fields-wrapper>.form-submit:hover {
+    background: linear-gradient(270deg, rgb(166, 234, 240) 23%, rgb(13, 124, 165) 50%, rgb(166, 234, 240) 77%);
+}
+
+@media (max-width: 758px) {
+    .fields-wrapper {
+        padding: 40px 30px;
+        max-width: 100%;
+        height: fit-content;
+    }
+
+    .fields-wrapper>input,
+    .fields-wrapper>button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .fields-wrapper>label {
+        margin-left: 0;
+    }
+
+    .fields-wrapper>h2 {
+        text-align: center;
+    }
+}
