@@ -1,0 +1,39 @@
+.footer {
+    font-family: "Edu AU VIC WA NT Pre", cursive;
+    letter-spacing: 2px;
+    max-width: 100%;
+    font-size: 12px;
+    background-color: #292629;
+    background: linear-gradient(190deg, rgba(52,56,60,1) 0%, rgba(41,38,41,1) 50%, rgba(50,54,57,1) 100%);
+    border-bottom:1px solid rgb(207, 199, 207);
+    box-shadow: 0px 0px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+}
+
+.footer-content {
+    color: aliceblue;
+    max-width: 1110px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        font-size: 10px;
+        height: auto;
+        padding: 20px 10px;
+    }
+
+    .footer-content {
+        margin-top: 10px;
+        padding: 0 10px;
+    }
+}
