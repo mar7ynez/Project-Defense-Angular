@@ -1,21 +1,21 @@
-<form class="auth-form">
+<form [formGroup]="authForm" class="auth-form" (ngSubmit)="handleSubmit()">
     <div class="fields-wrapper">
         <h2>{{isLoginMode ? 'Login' : 'Register'}}</h2>
 
         <label for="email">Email</label>
-        <input type="text" id="email" name="email">
+        <input type="text" id="email" name="email" formControlName="email">
 
         @if (!isLoginMode) {
         <label for="username">Username</label>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" name="username" formControlName="username">
         }
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" formControlName="password">
 
         @if (!isLoginMode) {
         <label for="rePass">Confirm Password</label>
-        <input type="password" id="rePass" name="rePass">
+        <input type="password" id="rePass" name="rePass" formControlName="rePass">
         }
 
         <button type="submit">{{isLoginMode ? 'Log in' : 'Register'}}</button>
