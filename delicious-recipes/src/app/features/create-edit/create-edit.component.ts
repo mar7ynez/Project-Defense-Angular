@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CatalogService } from '../../core/services/recipe.service';
-import { Recipe } from '../../shared/types/recipe';
 
 @Component({
   selector: 'app-create',
@@ -13,19 +12,10 @@ import { Recipe } from '../../shared/types/recipe';
   styleUrl: './create-edit.component.css'
 })
 
-export class CreateEditComponent {
+export class CreateEditComponent implements OnInit {
   isEditMode: Boolean = false;
   recipeId: string = '';
   createAndEditForm: FormGroup;
-
-  recipe: Recipe = {
-    recipeTitle: '',
-    ingredients: [{ ingredientName: '', ingredientQuantity: '' }],
-    imageUrl: '',
-    directions: '',
-    duration: '',
-    likes: []
-  };
 
   constructor(
     private router: Router,
@@ -33,9 +23,6 @@ export class CreateEditComponent {
     private catalogService: CatalogService,
     private fb: FormBuilder,
   ) {
-    this.isEditMode = Boolean(this.activatedRoute.snapshot.routeConfig?.path?.includes('edit'));
-    this.recipeId = this.activatedRoute.snapshot.url[0].path;
-
     this.createAndEditForm = this.fb.group({
       recipeTitle: ['', Validators.required],
       ingredients: this.fb.array([]),
@@ -43,13 +30,18 @@ export class CreateEditComponent {
       duration: ['', Validators.required],
       directions: ['', Validators.required]
     });
+  };
+
+  ngOnInit() {
+    this.isEditMode = Boolean(this.activatedRoute.snapshot.routeConfig?.path?.includes('edit'));
+    this.recipeId = this.activatedRoute.snapshot.url[0].path;
 
     if (this.isEditMode) {
       this.setFormForEdit();
     } else {
       this.ingredients.push(this.fb.group({ ingredientName: '', ingredientQuantity: '', }));
     }
-  };
+  }
 
   get ingredients() {
     return this.createAndEditForm.get('ingredients') as FormArray;
@@ -105,7 +97,7 @@ export class CreateEditComponent {
     })
   }
 
-  addIngredient() {
+  addIngredient(): void {
     const ingredientForm = this.fb.group({
       ingredientName: ['', Validators.required],
       ingredientQuantity: ['', Validators.required]
@@ -114,7 +106,7 @@ export class CreateEditComponent {
     this.ingredients.push(ingredientForm);
   }
 
-  removeIngredient() {
+  removeIngredient(): void {
     const ingrLength = this.ingredients.length - 1;
 
     if (!ingrLength) {
