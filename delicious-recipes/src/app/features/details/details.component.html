@@ -1,26 +1,33 @@
 <div class="details-card">
-    <h1 class="card-title">{{recipeDetails?.recipeTitle}}</h1>
+    <h1 class="card-title">{{recipeData?.recipeTitle}}</h1>
     <div>
-        <img src="{{recipeDetails?.imageUrl}}" class="card-img-top" alt="{{recipeDetails?.recipeTitle}}">
+        <img src="{{recipeData?.imageUrl}}" class="card-img-top" alt="{{recipeData?.recipeTitle}}">
     </div>
     <div class="like-counter">
-        <h3><i class="fa-solid fa-heart"></i> {{recipeDetails?.likes?.length}}</h3>
+        <h3><i class="fa-solid fa-heart"></i> {{recipeData?.likes?.length}}</h3>
     </div>
-    <div class="detail-buttons">
-        <button [routerLink]="['/', recipeDetails?._id, 'edit']" type="button" class="edit-btn"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
-        <button type="button" class="delete-btn"><i class="fa-solid fa-trash"></i> Delete</button>
-        <button type="button" class="like-btn"><i class="fa-solid fa-heart"></i> Like</button>
-    </div>
+
+    @if(userData) {
+        <div class="detail-buttons">
+            @if (isOwner) {
+                <button [routerLink]="['/', recipeData?._id, 'edit']" type="button" class="edit-btn"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                <button (click)="onDelete()" type="button" class="delete-btn"><i class="fa-solid fa-trash"></i> Delete</button>
+            }
+            @if (!hasLiked && !isOwner) {
+                <button (click)="onLike()" type="button" class="like-btn"><i class="fa-solid fa-heart"></i> Like</button>
+            }
+        </div>
+    }
     <div class="card-body">
         <h2 class="card-title">INGREDIENTS</h2>
         <div class="ingredient-list">
             <ul class="ingredient-list">
-                @for (ingredient of recipeDetails?.ingredients; track $index){
+                @for (ingredient of recipeData?.ingredients; track $index){
                 <li>{{ingredient.ingredientName}} - {{ingredient.ingredientQuantity}}</li>
                 }
             </ul>
         </div>
         <h2 class="card-title">DIRECTIONS</h2>
-        <p class="card-text">{{recipeDetails?.directions}}</p>
+        <p class="card-text">{{recipeData?.directions}}</p>
     </div>
 </div>
