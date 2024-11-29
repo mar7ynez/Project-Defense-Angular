@@ -1,9 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { endpoints, host } from "../../../environments/environment";
-import { Injectable, signal } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Recipe } from "../../shared/types/recipe";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 
 export class CatalogService {
     constructor(private http: HttpClient) { }
@@ -30,5 +32,9 @@ export class CatalogService {
 
     like(recipeId: string) {
         return this.http.get(`${host}${endpoints.likeRecipe(recipeId)}`);
+    }
+
+    getMostLiked() {
+        return this.http.get<Recipe[]>(`${host}${endpoints.getMostLiked}`);
     }
 }
