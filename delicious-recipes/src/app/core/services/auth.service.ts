@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable, OnDestroy } from "@angular/core";
 import { host, endpoints } from "../../../environments/environment";
 import { User } from "../../shared/types/user";
 import { BehaviorSubject, Subscription, tap } from "rxjs";
@@ -8,7 +8,7 @@ import { BehaviorSubject, Subscription, tap } from "rxjs";
     providedIn: 'root'
 })
 
-export class AuthService {
+export class AuthService implements OnDestroy {
 
     user$$ = new BehaviorSubject<User | null>(null);
     user$ = this.user$$.asObservable();
@@ -46,5 +46,9 @@ export class AuthService {
     getProfile() {
         return this.http.get<User>(`${host}${endpoints.profile}`)
             .pipe(tap((userData) => this.user$$.next(userData)));
+    }
+
+    ngOnDestroy(): void {
+        this.userSub?.unsubscribe();
     }
 }
