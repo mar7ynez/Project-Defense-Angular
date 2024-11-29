@@ -1,0 +1,25 @@
+<div class="wrapper">
+    <div class="bullet-wrapper">
+        <ul class="bullet-content">
+            <li class="bullet">Explore a variety of healthy recipes that nourish your body
+                and satisfy your
+                taste buds.</li>
+            <li class="bullet">Step-by-step instructions that make cooking healthy meals a breeze
+                for beginners and
+                seasoned chefs alike.</li>
+            <li class="bullet">Indulge in guilt-free snacks and sweet treats that won’t derail
+                your wellness
+                journey.</li>
+        </ul>
+    </div>
+    <div class="buttons-wrapper">
+        <div class="inner-wrapper">
+            <button routerLink="/catalog" class="button"><i class="fa-solid fa-utensils"> </i> RECIPES</button>
+            <button routerLink="/register" class="button"><i class="fa-solid fa-lock"> </i> SIGN UP</button>
+        </div>
+    </div>
+</div>
+<div class="top-recipes-wrapper">
+    <h2 class="top-recipes-heading">TOP RECIPES</h2>
+    <catalog-item [allRecipes]="recipes"></catalog-item>
+</div>
