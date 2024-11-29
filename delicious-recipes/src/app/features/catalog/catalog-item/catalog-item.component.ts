@@ -12,8 +12,4 @@ import { Recipe } from '../../../shared/types/recipe';
 
 export class CatalogItemComponent {
   @Input() allRecipes: Recipe[] = [];
-
-  logRec () {
-    console.log(this.allRecipes);
-  }
 }
