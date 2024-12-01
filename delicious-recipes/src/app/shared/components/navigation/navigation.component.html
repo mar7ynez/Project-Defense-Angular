@@ -1,35 +1,32 @@
-<!-- <nav>
-    <div>
-        <a class="nav-btn" href="">Вход</a>
-        <a class="nav-btn" href="">Регистрация</a>
-        <a class="nav-btn" href="">Профил</a>
-        <a class="nav-btn" href="">Рецепти</a>
-        <a class="nav-btn" href="">Търсeне</a>
-        <a class="nav-btn" href="">Изход</a>
-    </div>
-</nav> -->
 <nav class="navigation">
     <div class="nav-container">
         <ul class="nav-buttons">
-            <li class="logo">Delicious Recipes</li>
+            <a routerLink="/" class="logo">DELCIOUS RECIPES</a>
+
             <li>
-                <a routerLink="/catalog" class="nav-btn" href="">Recipes</a>
+                <a routerLink="/catalog" class="nav-btn" href="">RECIPES</a>
+            </li>
+
+            @if (authenticationService.isAuth) {
+            <li>
+                <a routerLink="/create" class="nav-btn" href="">CREATE</a>
             </li>
             <li>
-                <a class="nav-btn" href="">Profile</a>
+                <a class="nav-btn" href="">PROFILE</a>
             </li>
             <li>
-                <a routerLink="/create" class="nav-btn" href="">Create</a>
+                <a (click)="onLogout($event)" class="nav-btn" href="">LOGOUT</a>
+            </li>
+            }
+
+            @if(!authenticationService.isAuth) {
+            <li>
+                <a routerLink="/login" class="nav-btn" href="">LOGIN</a>
             </li>
             <li>
-                <a routerLink="/login" class="nav-btn" href="">Login</a>
+                <a routerLink="/register" class="nav-btn" href="">REGISTER</a>
             </li>
-            <li>
-                <a routerLink="/register" class="nav-btn" href="">Register</a>
-            </li>
-            <li>
-                <a class="nav-btn" href="">Logout</a>
-            </li>
+            }
         </ul>
         <div class="hamburger-menu">
             &#9776; <!-- Hamburger icon (3 horizontal bars) -->
