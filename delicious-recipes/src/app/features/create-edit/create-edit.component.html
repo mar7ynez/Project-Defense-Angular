@@ -1,12 +1,12 @@
 <div class="form-background">
     <form [formGroup]="createAndEditForm" class="form" (ngSubmit)="handleSubmit()">
         <div class="fields-wrapper">
-            <h2>{{isEditMode ? 'Edit Recipe': 'Create Recipe'}}</h2>
+            <h2>{{isEditMode ? 'EDIT RECIPE': 'CREATE RECIPE'}}</h2>
 
-            <label for="title">Recipe</label>
+            <label for="title">RECIPE</label>
             <input type="text" id="title" formControlName="recipeTitle">
 
-            <label for="ingredients">Ingredients</label>
+            <label for="ingredients">INGREDIENTS</label>
             <div formArrayName="ingredients" class="ingredients-list">
                 @for (ingredient of ingredients.controls; track ingredient; let i = $index) {
                 <div class="ingredient-pair" id="ingredients" [formGroupName]="i">
@@ -16,20 +16,20 @@
                 }
             </div>
             <div class="add-remove-wrapper">
-                <button class="addIngredient" type="button" (click)="addIngredient()">Add</button>
-                <button class="removeIngredient" type="button" (click)="removeIngredient()">Del</button>
+                <button class="addIngredient" type="button" (click)="addIngredient()">ADD</button>
+                <button class="removeIngredient" type="button" (click)="removeIngredient()">DEL</button>
             </div>
 
-            <label for="imageUrl">Image URL</label>
+            <label for="imageUrl">IMAGE URL</label>
             <input type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl">
 
-            <label for="duration">Duration</label>
+            <label for="duration">DURATION</label>
             <input type="text" id="duration" name="duration" formControlName="duration">
 
-            <label for="directions">Directions</label>
+            <label for="directions">DIRECTIONS</label>
             <textarea id="directions" type="text" name="directions" formControlName="directions"></textarea>
 
-            <button class="form-submit">{{isEditMode ? 'Edit': 'Create'}}</button>
+            <button class="form-submit">{{isEditMode ? 'EDIT': 'CREATE'}}</button>
         </div>
     </form>
 </div>
