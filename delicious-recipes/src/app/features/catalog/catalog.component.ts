@@ -7,7 +7,6 @@ import { Recipe } from '../../shared/types/recipe';
   selector: 'app-catalog',
   standalone: true,
   imports: [CatalogItemComponent],
-  providers: [CatalogService],
   templateUrl: './catalog.component.html',
   styleUrl: './catalog.component.css'
 })
@@ -17,6 +16,13 @@ export class CatalogComponent implements OnInit {
   constructor(private catalogService: CatalogService) { }
 
   ngOnInit(): void {
-    this.catalogService.getRecipes().subscribe(recipes => this.recipes = recipes);
+    this.catalogService.getRecipes().subscribe({
+      next: (recipes) => {
+        this.recipes = recipes;
+      },
+      error: (error) => {
+        alert('Error fetching the recipes!')
+      }
+    });
   }
 }
