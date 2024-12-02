@@ -9,7 +9,6 @@ import { AuthService } from '../../core/services/auth.service';
   selector: 'app-details',
   standalone: true,
   imports: [RouterLink],
-  providers: [CatalogService],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
