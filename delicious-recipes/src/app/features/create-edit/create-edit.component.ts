@@ -7,7 +7,6 @@ import { CatalogService } from '../../core/services/recipe.service';
   selector: 'app-create',
   standalone: true,
   imports: [ReactiveFormsModule],
-  providers: [CatalogService],
   templateUrl: './create-edit.component.html',
   styleUrl: './create-edit.component.css'
 })
