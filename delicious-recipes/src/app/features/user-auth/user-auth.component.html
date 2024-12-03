@@ -3,32 +3,32 @@
         <h2>{{isLoginMode ? 'LOGIN' : 'REGISTER'}}</h2>
 
         <label class="auth-label" for="email">EMAIL</label>
-        @if(isFieldTouchedAndInvalid('email')) {
-        <small class="error">{{getControlError('email')}}</small>
-        }
+            @if(touchedAndInvalid(this.authForm,null,'email')) {
+            <small class="error">{{getControlError(this.authForm, null, 'email')}}</small>
+            }
         <input class="auth-input" type="text" id="email" name="email" formControlName="email">
 
         @if (!isLoginMode) {
-        <label class="auth-label" for="username">USERNAME</label>
-        @if(isFieldTouchedAndInvalid('username')) {
-        <small class="error">{{getControlError('username')}}</small>
-        }
-        <input class="auth-input" type="text" id="username" name="username" formControlName="username">
+            <label class="auth-label" for="username">USERNAME</label>
+            @if(touchedAndInvalid(this.authForm,null,'username')) {
+            <small class="error">{{getControlError(this.authForm, null, 'username')}}</small>
+            }
+            <input class="auth-input" type="text" id="username" name="username" formControlName="username">
         }
 
         <div class="password-wrapper" formGroupName="passGroup">
             <label class="auth-label" for="password">PASSWORD</label>
-            @if (isFieldTouchedAndInvalid('password')) {
-                <small class="error">{{getControlError('password')}}</small>
-            }
+                @if (touchedAndInvalid(this.authForm, this.passwordGroup,'password')) {
+                <small class="error">{{getControlError(this.authForm, this.passwordGroup, 'password')}}</small>
+                }
             <input class="auth-input" type="password" id="password" name="password" formControlName="password">
 
             @if (!isLoginMode) {
-            <label class="auth-label" for="rePass">CONFIRM PASSWORD</label>
-            @if (isFieldTouchedAndInvalid('rePass')) {
-                <small class="error">{{getControlError('rePass')}}</small>
-            }
-            <input class="auth-input" type="password" id="rePass" name="rePass" formControlName="rePass">
+                <label class="auth-label" for="rePass">CONFIRM PASSWORD</label>
+                @if (touchedAndInvalid(this.authForm,this.passwordGroup,'rePass')) {
+                <small class="error">{{getControlError(this.authForm, this.passwordGroup, 'rePass')}}</small>
+                }
+                <input class="auth-input" type="password" id="rePass" name="rePass" formControlName="rePass">
             }
         </div>
 
