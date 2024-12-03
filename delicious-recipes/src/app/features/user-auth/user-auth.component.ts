@@ -5,7 +5,7 @@ import { AuthService } from '../../core/services/auth.service';
 import { CommonModule } from '@angular/common';
 import { emailValidator } from '../../shared/utilities/email.validator';
 import { confirmPasswordValidator } from '../../shared/utilities/confirmPassword.validator';
-import { errorTypes } from '../../shared/types/error';
+import { getErrorMsg, isFieldTouchedAndInvalid } from '../../shared/utilities/getErrorUtils';
 
 @Component({
   selector: 'app-user-auth',
@@ -38,9 +38,15 @@ export class AuthFormComponent implements OnInit {
   }
 
   handleSubmit() {
-    const { email, username, password, rePass } = this.authForm.value;
+    const { email, username } = this.authForm.value;
+    const password = this.passwordGroup?.get('password')?.value;
+    const rePass = this.passwordGroup?.get('rePass')?.value;
 
     if (!this.isLoginMode) {
+      if (password !== rePass) {
+        return;
+      }
+
       this.authService.register({ email, username, password, rePass }).subscribe({
         next: (userData) => {
           this.router.navigateByUrl('/catalog');
@@ -51,6 +57,10 @@ export class AuthFormComponent implements OnInit {
         }
       });
 
+      return;
+    }
+
+    if (!email || password.length < 8) {
       return;
     }
 
@@ -79,39 +89,11 @@ export class AuthFormComponent implements OnInit {
     return invalidControls.some(control => control === true);
   }
 
-  isFieldTouchedAndInvalid(controlName: string): boolean {
-    if (controlName === 'rePass' || controlName === 'password') {
-      return !!this.passwordGroup?.get(controlName)?.touched && !!this.passwordGroup?.errors || !!this.passwordGroup?.get(controlName)?.errors && !!this.passwordGroup?.get(controlName)?.touched;
-    }
-
-    return this.authForm.controls[controlName].invalid && this.authForm.controls[controlName].touched;
+  touchedAndInvalid(form: FormGroup, abstractControl: AbstractControl | null, controlName: string) {
+    return isFieldTouchedAndInvalid(form, abstractControl, controlName);
   }
 
-  getControlError(controlName: string) {
-    const control = this.authForm.controls[controlName] || this.passwordGroup?.get(controlName);
-    const controlNameCapital = controlName === 'rePass' ? 'Confirm password' : controlName.replace(controlName[0], controlName[0].toUpperCase());
-
-    if (controlName === 'rePass' && this.passwordGroup?.errors) {
-      return this.passwordGroup.errors['confirmPassword'];
-    }
-
-    const errorMessages: errorTypes = {
-      required: `${controlNameCapital} is required!`,
-      emailPattern: `${controlNameCapital} does not match the required pattern!`,
-      minlength: (requiredLength: number) => `${controlNameCapital} must be at least ${requiredLength} characters long!`,
-    }
-
-    for (const errorType in errorMessages) {
-      if (control.hasError(errorType as keyof errorTypes)) {
-        if (errorType === 'minlength') {
-          const requiredLength = control.errors?.['minlength'].requiredLength;
-          
-          return errorMessages.minlength(requiredLength)
-        }
-        return errorMessages[errorType as keyof errorTypes]
-      }
-    }
-
-    return '';
+  getControlError(form: FormGroup, abstractControl: AbstractControl | null, controlName: string) {
+    return getErrorMsg(form, abstractControl, controlName);
   }
 }
