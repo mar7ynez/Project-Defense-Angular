@@ -19,7 +19,7 @@ export const getErrorMsg = (form: FormGroup, abstractControl: AbstractControl | 
 
     const errorMessages: errorTypes = {
         required: `${controlNameCapital} is required!`,
-        emailPattern: `${controlNameCapital} does not match the required pattern!`,
+        pattern: `${controlNameCapital} does not match the required pattern!`,
         minlength: (requiredLength: number) => `${controlNameCapital} must be at least ${requiredLength} characters long!`,
     }
 
@@ -38,9 +38,18 @@ export const getErrorMsg = (form: FormGroup, abstractControl: AbstractControl | 
 }
 
 export const isFieldTouchedAndInvalid = (form: FormGroup, abstractControl: AbstractControl | null, controlName: string): boolean => {
-    if (controlName === 'rePass' || controlName === 'password') {
-        return !!abstractControl?.get(controlName)?.touched && !!abstractControl?.errors || !!abstractControl?.get(controlName)?.errors && !!abstractControl?.get(controlName)?.touched;
+
+    const abstractControls = ['rePass', 'password', 'ingredientName', 'ingredientQuantity'];
+
+    if (abstractControls.includes(controlName)) {
+        const isAbstractContrInvalidAndTouched = !!abstractControl?.get(controlName)?.errors && !!abstractControl?.get(controlName)?.touched;
+        const isAbstractContrInvalidAndDirty = !!abstractControl?.errors && !!abstractControl?.get(controlName)?.dirty;
+
+        return !!abstractControl?.get(controlName)?.touched && !!abstractControl?.errors || isAbstractContrInvalidAndTouched || isAbstractContrInvalidAndDirty;
     }
 
-    return form.controls[controlName].invalid && form.controls[controlName].touched;
+    const isControlInvalidAndTouched = form.controls[controlName].invalid && form.controls[controlName].touched;
+    const isControlInvalidAndDirty = form.controls[controlName].invalid && form.controls[controlName].dirty;
+
+    return isControlInvalidAndTouched || isControlInvalidAndDirty;
 }
