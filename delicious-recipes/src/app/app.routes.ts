@@ -6,6 +6,7 @@ import { CatalogComponent } from './features/catalog/catalog.component';
 import { HomeComponent } from './features/home/home.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { ProfileComponent } from './features/profile/profile.component';
+import { NotFound } from './features/not-found/not-found.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,7 +14,8 @@ export const routes: Routes = [
     { path: 'create', component: CreateEditComponent, canActivate: [AuthGuard] },
     { path: 'login', component: AuthFormComponent },
     { path: 'register', component: AuthFormComponent },
-    { path: 'profile', component: ProfileComponent },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: ':recipeId/details', component: DetailsComponent },
-    { path: ':recipeId/edit', component: CreateEditComponent },
+    { path: ':recipeId/edit', component: CreateEditComponent, canActivate: [AuthGuard] },
+    { path: '**', component: NotFound }
 ];
