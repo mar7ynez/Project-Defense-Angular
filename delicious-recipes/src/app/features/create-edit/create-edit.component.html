@@ -1,17 +1,28 @@
 <div class="form-background">
     <form [formGroup]="createAndEditForm" class="form" (ngSubmit)="handleSubmit()">
         <div class="fields-wrapper">
-            <h2>{{isEditMode ? 'EDIT RECIPE': 'CREATE RECIPE'}}</h2>
+            <h2 class="create-edit-heading">{{isEditMode ? 'EDIT RECIPE': 'CREATE RECIPE'}}</h2>
 
-            <label for="title">RECIPE</label>
-            <input type="text" id="title" formControlName="recipeTitle">
+            <label class="create-edit-label" for="title">RECIPE</label>
+            @if(touchedAndInvalid(this.createAndEditForm, null, 'recipeTitle')){
+            <small class="error">{{getControlError(this.createAndEditForm, null, 'recipeTitle')}}</small>
+            }
+            <input class="create-edit-input" type="text" id="title" formControlName="recipeTitle">
 
-            <label for="ingredients">INGREDIENTS</label>
+            <label class="create-edit-label" for="ingredients">INGREDIENTS</label>
             <div formArrayName="ingredients" class="ingredients-list">
                 @for (ingredient of ingredients.controls; track ingredient; let i = $index) {
+
+                @if (touchedAndInvalid(this.createAndEditForm, ingredient, 'ingredientName') ||
+                touchedAndInvalid(this.createAndEditForm, ingredient, 'ingredientQuantity')) {
+                <small class="error">Ingredient name and quantity are required!</small>
+                }
+
                 <div class="ingredient-pair" id="ingredients" [formGroupName]="i">
-                    <input type="text" placeholder="Ingredient Name" formControlName="ingredientName">
-                    <input type="text" placeholder="Quantity" formControlName="ingredientQuantity">
+                    <input class="create-edit-input" type="text" placeholder="Ingredient Name"
+                        formControlName="ingredientName">
+                    <input class="create-edit-input" type="text" placeholder="Quantity"
+                        formControlName="ingredientQuantity">
                 </div>
                 }
             </div>
@@ -20,16 +31,31 @@
                 <button class="removeIngredient" type="button" (click)="removeIngredient()">DEL</button>
             </div>
 
-            <label for="imageUrl">IMAGE URL</label>
-            <input type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl">
+            <label class="create-edit-label" for="duration">DURATION</label>
+            @if(touchedAndInvalid(this.createAndEditForm, null, 'duration')){
+            <small class="error">{{getControlError(this.createAndEditForm, null, 'duration')}}</small>
+            }
+            <input class="create-edit-input" type="text" id="duration" name="duration" formControlName="duration">
 
-            <label for="duration">DURATION</label>
-            <input type="text" id="duration" name="duration" formControlName="duration">
+            <label class="create-edit-label" for="directions">DIRECTIONS</label>
+            @if(touchedAndInvalid(this.createAndEditForm, null, 'directions')){
+            <small class="error">{{getControlError(this.createAndEditForm, null, 'directions')}}</small>
+            }
+            <textarea class="create-edit-textarea" id="directions" type="text" name="directions"
+                formControlName="directions"></textarea>
 
-            <label for="directions">DIRECTIONS</label>
-            <textarea id="directions" type="text" name="directions" formControlName="directions"></textarea>
-
-            <button class="form-submit">{{isEditMode ? 'EDIT': 'CREATE'}}</button>
+            <label class="create-edit-label" for="image">IMAGE</label>
+            @if(!isEditMode) {
+            <small [class]="fileInput.value ? 'hidden' : 'error' ">Image is required!</small>
+            }
+            <input type="file" name="image" (change)="onFileSelected($event)" hidden #fileInput>
+            <div class="img-fields">
+                <input class="create-edit-input" type="text" [value]="imageName ? imageName : 'No image selected'"
+                    #fileInput disabled>
+                <button class="upload-btn" (click)="triggerFileInput($event,fileInput)">UPLOAD IMAGE</button>
+            </div>
+            <button [class]="isFormInvalid() ? 'disabled': ''" [disabled]="isFormInvalid() ? 'disabled' : ''"
+                class="form-submit">{{isEditMode ? 'EDIT': 'CREATE'}}</button>
         </div>
     </form>
 </div>
