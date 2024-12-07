@@ -21,14 +21,14 @@
                 @if (touchedAndInvalid(this.authForm, this.passwordGroup,'password')) {
                 <small class="error">{{getControlError(this.authForm, this.passwordGroup, 'password')}}</small>
                 }
-            <input class="auth-input" type="password" id="password" name="password" formControlName="password">
+            <input class="auth-input" type="password" id="password" name="password" autocomplete="password" formControlName="password">
 
             @if (!isLoginMode) {
                 <label class="auth-label" for="rePass">CONFIRM PASSWORD</label>
                 @if (touchedAndInvalid(this.authForm,this.passwordGroup,'rePass')) {
                 <small class="error">{{getControlError(this.authForm, this.passwordGroup, 'rePass')}}</small>
                 }
-                <input class="auth-input" type="password" id="rePass" name="rePass" formControlName="rePass">
+                <input class="auth-input" type="password" id="rePass" name="rePass" autocomplete="password" formControlName="rePass">
             }
         </div>
 
