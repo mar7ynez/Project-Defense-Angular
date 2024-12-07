@@ -7,8 +7,7 @@ export const getErrorMsg = (form: FormGroup, abstractControl: AbstractControl | 
 
     const controlNames: controlNameTypes = {
         rePass: 'Confirm password',
-        recipeTitle: 'Recipe title',
-        imageUrl: 'Image URL'
+        recipeTitle: 'Recipe title'
     }
 
     const controlNameCapital = controlNames[controlName as keyof controlNameTypes] ? controlNames[controlName as keyof controlNameTypes] : controlName.replace(controlName[0], controlName[0].toUpperCase());
