@@ -1,0 +1,45 @@
+.not-found-wrapper {
+    background: none;
+    background-color: rgba(208, 223, 230, 0.616);
+    min-height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+}
+
+.heading {
+    font-size: 150px;
+    padding-top: 100px;
+    justify-self: center;
+}
+
+.content-wrapper {
+    font-size: 25px;
+    justify-self: center;
+    text-align: center;
+}
+
+.content {
+    max-width: 800px;
+    margin-top: 50px;
+}
+
+.go-home-wrapper {
+    margin-top: 80px;
+
+}
+
+.go-home-btn {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-self: center;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(259deg, rgba(123, 217, 245, 1) 0%, rgba(49, 122, 113, 1) 50%, rgba(123, 217, 245, 1) 100%);
+    text-decoration: unset;
+    color: aliceblue;
+}
+
+.go-home-btn:hover {
+    background: linear-gradient(259deg, rgba(123, 217, 245, 1) 0%, rgba(45, 163, 148, 1) 50%, rgba(123, 217, 245, 1) 100%);
+}
