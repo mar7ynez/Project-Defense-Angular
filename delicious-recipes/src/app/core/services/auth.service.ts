@@ -48,6 +48,23 @@ export class AuthService implements OnDestroy {
             .pipe(tap((userData) => this.user$$.next(userData)));
     }
 
+    updateAvatar(image: File) {
+        const formData = new FormData();
+        formData.append('image', image);
+
+        return this.http.put<User>(`${host}${endpoints.profile}/image`, formData);
+    }
+
+    updateProfile(updatedProfile: User) {
+        return this.http.put<User>(`${host}${endpoints.profile}`, updatedProfile)
+        .pipe(tap((userData) => this.user$$.next(userData)));
+    }
+
+    deleteProfile() {
+        return this.http.delete(`${host}${endpoints.profile}`)
+        .pipe(tap((userData) => this.user$$.next(null)));
+    }
+
     ngOnDestroy(): void {
         this.userSub?.unsubscribe();
     }
