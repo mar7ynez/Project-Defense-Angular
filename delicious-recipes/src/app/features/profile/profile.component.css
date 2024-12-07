@@ -1,0 +1,172 @@
+.profile-wrapper {
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* min-height: 100vh; */
+    /* max-width: 100vw; */
+    display: flex;
+    font-family: "Montserrat", sans-serif;
+}
+
+.profile-card {
+    background: linear-gradient(259deg, rgba(205, 218, 223, 0.63) 0%, rgba(120, 147, 151, 0.555) 52%, rgba(177, 189, 194, 0.589) 92%);
+    width: 30%;
+    box-shadow: 4px 1px 7px 1px black;
+}
+
+.heading {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 20px;
+}
+
+.img-wrapper {
+    justify-self: center;
+    max-width: 200px;
+    width: 180px;
+    margin: 10px
+}
+
+.profile-img {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 100%;
+    max-height: 180px;
+}
+
+.user-data {
+    justify-self: center;
+    list-style: none;
+    padding: 30px;
+    font-size: 16px;
+}
+
+.data-li {
+    margin: 20px;
+    word-spacing: 3px;
+}
+
+.profile-btn-wrapper,
+.edit-form-button {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.file-form {
+    display: grid;
+}
+
+.profile-btn,
+.edit-form-button {
+    padding: 5px 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    word-spacing: 1px;
+    box-shadow: 0px 0px 2px 1px rgb(82, 206, 212);
+    background: linear-gradient(270deg, rgba(132, 213, 219, 0.87) 23%, rgba(90, 192, 199, 0.842) 50%, rgba(107, 196, 202, 0.856) 77%);
+
+}
+
+.profile-btn:hover,
+.edit-form-button:hover {
+    cursor: pointer;
+    background: linear-gradient(270deg, rgba(75, 183, 190, 0.87) 23%, rgba(101, 227, 238, 0.842) 50%, rgba(64, 199, 209, 0.747) 77%);
+    box-shadow: 0px 0px 2px 2px rgb(82, 206, 212);
+}
+
+.disabled,
+.disabled:hover {
+    background: linear-gradient(270deg, rgb(98, 104, 104) 23%, rgb(111, 135, 143) 50%, rgb(98, 104, 104) 77%);
+    cursor: not-allowed;
+    box-shadow: 0px 0px 2px 1px rgb(95, 114, 116);
+}
+
+.edit-profile-form {
+    width: 70%;
+    box-shadow: 4px 1px 7px 1px black;
+    background: linear-gradient(259deg, rgba(205, 218, 223, 0.562) 0%, rgba(118, 163, 170, 0.507) 52%, rgba(177, 189, 194, 0.589) 92%);
+}
+
+.edit-heading {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 20px;
+    justify-self: center;
+}
+
+.edit-fields-wrapper {
+    max-width: 700px;
+    margin: 60px 20px;
+    justify-self: center;
+    font-size: 16px;
+    width: 80%;
+}
+
+.input-field {
+    all: unset;
+    margin-bottom: 40px;
+    width: 100%;
+    background-color: rgba(86, 98, 107, 0.329);
+    border-radius: 2px;
+    height: 30px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+}
+
+.edit-btn-wrapper {
+    justify-self: start;
+}
+
+.edit-form-button {
+    margin-top: 107px;
+    padding: 8px 50px;
+}
+
+.dashboard-wrapper {
+    background: linear-gradient(259deg, rgba(205, 218, 223, 0.219) 0%, rgba(118, 163, 170, 0.192) 52%, rgba(177, 189, 194, 0.219) 92%);
+    /* margin: 50px; */
+    /* border: 1px solid red; */
+    font-family: "Unica One", serif;
+    font-size: 24px;
+    word-spacing: 3px;
+    letter-spacing: 2px;
+    justify-items: center;
+}
+
+.my-recipes-heading {
+    text-align: center;
+    /* margin: 20px; */
+    padding: 20px;
+    padding: 10px 50px;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    border-radius: 4px;
+}
+
+.no-result {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    text-align: center;
+    justify-self: center;
+    margin: 150px;
+    letter-spacing: 1px;
+}
+
+@media(max-width: 650px) {
+    .profile-wrapper {
+        display: grid;
+    }
+
+    .profile-card {
+        width: 100%;
+    }
+
+    .edit-profile-form {
+        width: 100%;
+    }
+}

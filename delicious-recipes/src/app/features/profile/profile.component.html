@@ -1,0 +1,84 @@
+<div class="profile-wrapper">
+    <div class="profile-card">
+        <h3 class="heading">PROFILE</h3>
+        <div class="img-wrapper">
+            <img class="profile-img"
+                [src]="imageData || profile?.image || 'https://www.pngitem.com/pimgs/m/551-5510463_default-user-image-png-transparent-png.png'"
+                alt="Profile Image" />
+
+
+            <h3 class="heading">{{'@'}}{{profile?.username}}</h3>
+        </div>
+        <ul class="user-data">
+            <li class="data-li">Username: {{profile?.username}}</li>
+            <li class="data-li">Email: {{profile?.email}}</li>
+        </ul>
+        <div class="profile-btn-wrapper">
+            <form class="file-form" [formGroup]="fileForm" (ngSubmit)="onImgSubmit()">
+                <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden name="file" #fileInput />
+
+                @if(!imageData) {
+                <ng-container>
+                    <button class="profile-btn" type="button" (click)="triggerFileInput(fileInput)">Change
+                        Avatar</button>
+                </ng-container>
+                }
+
+                @if(imageData) {
+                <ng-container>
+                    <button class="profile-btn" type="submit">Submit</button>
+                </ng-container>
+                }
+            </form>
+
+            <button (click)="onDelete()" class="profile-btn">Delete Profile</button>
+        </div>
+    </div>
+    <form class="edit-profile-form" [formGroup]="editForm" (ngSubmit)="onEdit()">
+        <div class="edit-fields-wrapper">
+            <h3 class="edit-heading">EDIT PROFILE</h3>
+            <label class="label" for="email">EMAIL</label>
+            @if (touchedAndInvalid(editForm, null, 'email')){
+            <small class="error">{{getControlError(editForm,null, 'email')}}</small>
+            }
+            <input class="input-field" type="text" name="email" id="email" formControlName="email">
+
+            <label class="label" for="username">USERNAME</label>
+            @if (touchedAndInvalid(editForm, null, 'username')){
+            <small class="error">{{getControlError(editForm,null, 'username')}}</small>
+            }
+
+            <input class="input-field" type="text" name="username" id="username" autocomplete="username"
+                formControlName="username">
+            <h3 class="edit-heading">CHANGE PASSWORD</h3>
+            <div class="password-wrapper" formGroupName="passGroup">
+
+                <label class="label" for="password">PASSWORD</label>
+                @if (touchedAndInvalid(editForm, passwordGroup, 'password')){
+                <small class="error">{{getControlError(editForm,passwordGroup, 'password')}}</small>
+                }
+                <input class="input-field" type="password" name="password" id="password" autocomplete="new-password"
+                    formControlName="password">
+
+                <label class="label" for="rePass">CONFIRM PASSWORD</label>
+                @if (touchedAndInvalid(editForm, passwordGroup, 'rePass')){
+                <small class="error">{{getControlError(editForm,passwordGroup, 'rePass')}}</small>
+                }
+                <input class="input-field" type="password" name="rePass" id="rePass" autocomplete="new-password"
+                    formControlName="rePass">
+            </div>
+
+            <div class="edit-btn-wrapper">
+                <button [disabled]="isFormInvalid() ? 'disabled': ''" [class]="isFormInvalid() ? 'disabled': ''"
+                    class="edit-form-button">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="dashboard-wrapper">
+    <h2 class="my-recipes-heading">MY RECIPES</h2>
+    @if (!allRecipes.length) {
+    <div class="no-result">NO RESULTS FOUND</div>
+    }
+    <catalog-item [allRecipes]="allRecipes"></catalog-item>
+</div>
