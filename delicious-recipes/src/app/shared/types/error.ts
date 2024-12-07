@@ -1,5 +1,5 @@
 export interface errorTypes {
   required: string;
-  emailPattern: string;
+  pattern: string;
   minlength: (requiredLength: number) => string;
 }
