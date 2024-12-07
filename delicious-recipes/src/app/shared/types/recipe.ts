@@ -4,7 +4,7 @@ export interface Recipe {
     _id?: string,
     recipeTitle: string,
     ingredients: ingredients[],
-    imageUrl: string,
+    image: string,
     duration: string,
     directions: string,
     likes: string[],
