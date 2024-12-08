@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { endpoints, host } from "../../../environments/environment";
 import { Injectable } from "@angular/core";
 import { Recipe } from "../../shared/types/recipe";
@@ -19,11 +19,27 @@ export class CatalogService {
     }
 
     edit(updatedRecipe: Recipe, recipeId: string) {
-        return this.http.put<Recipe>(`${host}${endpoints.getOneRecipe(recipeId)}`, updatedRecipe);
+        const formData = new FormData();
+
+        formData.append('recipeTitle', updatedRecipe.recipeTitle);
+        formData.append('ingredients', JSON.stringify(updatedRecipe.ingredients));
+        formData.append('image', updatedRecipe.image);
+        formData.append('duration', updatedRecipe.duration);
+        formData.append('directions', updatedRecipe.directions);
+
+        return this.http.put<Recipe>(`${host}${endpoints.getOneRecipe(recipeId)}`, formData);
     }
 
     create(recipeData: Recipe) {
-        return this.http.post<Recipe>(`${host}${endpoints.getAllRecipes}`, recipeData);
+        const formData = new FormData();
+
+        formData.append('recipeTitle', recipeData.recipeTitle);
+        formData.append('ingredients', JSON.stringify(recipeData.ingredients));
+        formData.append('image', recipeData.image);
+        formData.append('duration', recipeData.duration);
+        formData.append('directions', recipeData.directions);
+
+        return this.http.post<Recipe>(`${host}${endpoints.getAllRecipes}`, formData);
     }
 
     del(recipeId: string) {
@@ -36,5 +52,15 @@ export class CatalogService {
 
     getMostLiked() {
         return this.http.get<Recipe[]>(`${host}${endpoints.getMostLiked}`);
+    }
+
+    search(searchQuery: string) {
+        const search = new HttpParams().set('search', searchQuery)
+
+        return this.http.get<Recipe[]>(`${host}${endpoints.search}`, { params: search });
+    }
+
+    getMyRecipes() {
+        return this.http.get<Recipe[]>(`${host}${endpoints.myRecipes}`)
     }
 }
