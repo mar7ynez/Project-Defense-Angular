@@ -38,3 +38,7 @@ body {
     display: flex;
     justify-self: start;
 }
+
+.hidden {
+    visibility: hidden;
+}
