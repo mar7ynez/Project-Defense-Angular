@@ -4,27 +4,27 @@
             <a routerLink="/" class="logo">DELCIOUS RECIPES</a>
 
             <li>
-                <a routerLink="/catalog" class="nav-btn" href="">RECIPES</a>
+                <a routerLink="/catalog" class="nav-btn">RECIPES</a>
             </li>
 
             @if (authenticationService.isAuth) {
             <li>
-                <a routerLink="/create" class="nav-btn" href="">CREATE</a>
+                <a routerLink="/create" class="nav-btn">CREATE</a>
             </li>
             <li>
-                <a class="nav-btn" href="">PROFILE</a>
+                <a routerLink="/profile" class="nav-btn">PROFILE</a>
             </li>
             <li>
-                <a (click)="onLogout($event)" class="nav-btn" href="">LOGOUT</a>
+                <a (click)="onLogout($event)" class="nav-btn">LOGOUT</a>
             </li>
             }
 
             @if(!authenticationService.isAuth) {
             <li>
-                <a routerLink="/login" class="nav-btn" href="">LOGIN</a>
+                <a routerLink="/login" class="nav-btn">LOGIN</a>
             </li>
             <li>
-                <a routerLink="/register" class="nav-btn" href="">REGISTER</a>
+                <a routerLink="/register" class="nav-btn">REGISTER</a>
             </li>
             }
         </ul>
