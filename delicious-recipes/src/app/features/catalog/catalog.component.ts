@@ -21,9 +21,6 @@ export class CatalogComponent implements OnInit {
     this.catalogService.getRecipes().subscribe({
       next: (recipes) => {
         this.recipes = recipes;
-      },
-      error: (error) => {
-        alert('Error fetching the recipes!')
       }
     });
   }
@@ -34,9 +31,6 @@ export class CatalogComponent implements OnInit {
         this.recipes = recipes;
         
         this.searchQuery = '';
-      },
-      error: (error) => {
-        alert('Search error!');
       }
     })
   }
