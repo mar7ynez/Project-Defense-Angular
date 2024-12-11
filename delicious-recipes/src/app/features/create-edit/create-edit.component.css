@@ -9,7 +9,6 @@
 }
 
 .form {
-    /* background: rgb(183,183,194); */
     background: linear-gradient(180deg, rgba(183, 183, 187, 0.315) 0%, rgba(183, 183, 187, 0.096) 50%, rgba(183, 183, 187, 0.315) 100%);
     display: flex;
     justify-content: center;
@@ -18,8 +17,6 @@
 
 .fields-wrapper {
     background: linear-gradient(52deg, rgb(59, 71, 73) 0%, rgb(29, 89, 102) 54%, rgb(228, 235, 235) 89%);
-
-    /* justify-items: center; */
     max-width: 400px;
     width: 100%;
     border: 1px solid rgb(163, 128, 128);
