@@ -4,11 +4,12 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Recipe } from '../../shared/types/recipe';
 import { User } from '../../shared/types/user';
 import { AuthService } from '../../core/services/auth.service';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, UpperCasePipe],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
@@ -37,9 +38,6 @@ export class DetailsComponent implements OnInit {
     this.catalogService.del(this.recipeId).subscribe({
       next: () => {
         this.router.navigate(['/catalog']);
-      },
-      error: (error) => {
-        alert('Error deleting the recipe!');
       }
     });
   }
@@ -49,9 +47,6 @@ export class DetailsComponent implements OnInit {
       next: () => {
         this.router.navigate(['/', this.recipeId, 'details'])
           .then(() => this.fetchRecipeData());
-      },
-      error: (error) => {
-        console.error(error);
       }
     })
   }
@@ -63,9 +58,6 @@ export class DetailsComponent implements OnInit {
 
         this.isOwner = recipeData._ownerId === this.userData?._id
         this.hasLiked = recipeData.likes.includes(this.userData?._id ?? '');
-      },
-      error: error => {
-        alert('Error fetching recipe data!');
       }
     });
   }
