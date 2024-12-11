@@ -1,37 +1,39 @@
 <div class="profile-wrapper">
     <div class="profile-card">
-        <h3 class="heading">PROFILE</h3>
-        <div class="img-wrapper">
-            <img class="profile-img"
-                [src]="imageData || profile?.image || 'https://www.pngitem.com/pimgs/m/551-5510463_default-user-image-png-transparent-png.png'"
-                alt="Profile Image" />
+        <div class="profile-info">
+            <h3 class="heading">PROFILE</h3>
+            <div class="img-wrapper">
+                <img class="profile-img"
+                    [src]="imageData || profile?.image || 'https://www.pngitem.com/pimgs/m/551-5510463_default-user-image-png-transparent-png.png'"
+                    alt="Profile Image" />
 
 
-            <h3 class="heading">{{'@'}}{{profile?.username}}</h3>
-        </div>
-        <ul class="user-data">
-            <li class="data-li">Username: {{profile?.username}}</li>
-            <li class="data-li">Email: {{profile?.email}}</li>
-        </ul>
-        <div class="profile-btn-wrapper">
-            <form class="file-form" [formGroup]="fileForm" (ngSubmit)="onImgSubmit()">
-                <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden name="file" #fileInput />
+                <h3 class="heading">{{'@'}}{{profile?.username}}</h3>
+            </div>
+            <ul class="user-data">
+                <li class="data-li">Username: {{profile?.username}}</li>
+                <li class="data-li">Email: {{profile?.email}}</li>
+            </ul>
+            <div class="profile-btn-wrapper">
+                <form class="file-form" [formGroup]="fileForm" (ngSubmit)="onImgSubmit()">
+                    <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden name="file" #fileInput />
 
-                @if(!imageData) {
-                <ng-container>
-                    <button class="profile-btn" type="button" (click)="triggerFileInput(fileInput)">Change
-                        Avatar</button>
-                </ng-container>
-                }
+                    @if(!imageData) {
+                    <ng-container>
+                        <button class="profile-btn" type="button" (click)="triggerFileInput(fileInput)">Change
+                            Avatar</button>
+                    </ng-container>
+                    }
 
-                @if(imageData) {
-                <ng-container>
-                    <button class="profile-btn" type="submit">Submit</button>
-                </ng-container>
-                }
-            </form>
+                    @if(imageData) {
+                    <ng-container>
+                        <button class="profile-btn" type="submit">Submit</button>
+                    </ng-container>
+                    }
+                </form>
 
-            <button (click)="onDelete()" class="profile-btn">Delete Profile</button>
+                <button (click)="onDelete()" class="profile-btn">Delete Profile</button>
+            </div>
         </div>
     </div>
     <form class="edit-profile-form" [formGroup]="editForm" (ngSubmit)="onEdit()">
@@ -53,7 +55,7 @@
             <h3 class="edit-heading">CHANGE PASSWORD</h3>
             <div class="password-wrapper" formGroupName="passGroup">
 
-                <label class="label" for="password">PASSWORD</label>
+                <label class="label" for="password">NEW PASSWORD</label>
                 @if (touchedAndInvalid(editForm, passwordGroup, 'password')){
                 <small class="error">{{getControlError(editForm,passwordGroup, 'password')}}</small>
                 }
@@ -74,11 +76,4 @@
             </div>
         </div>
     </form>
-</div>
-<div class="dashboard-wrapper">
-    <h2 class="my-recipes-heading">MY RECIPES</h2>
-    @if (!allRecipes.length) {
-    <div class="no-result">NO RESULTS FOUND</div>
-    }
-    <catalog-item [allRecipes]="allRecipes"></catalog-item>
 </div>

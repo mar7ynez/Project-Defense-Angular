@@ -1,5 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { CatalogItemComponent } from "../catalog/catalog-item/catalog-item.component";
+import { Component, OnInit } from "@angular/core";
 import { CatalogService } from "../../core/services/recipe.service";
 import { Recipe } from "../../shared/types/recipe";
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
@@ -16,7 +15,7 @@ import { fileSelect } from "../../shared/utilities/fileSelect";
     standalone: true,
     templateUrl: './profile.component.html',
     styleUrl: './profile.component.css',
-    imports: [CatalogItemComponent, ReactiveFormsModule]
+    imports: [ReactiveFormsModule]
 })
 
 export class ProfileComponent implements OnInit {
@@ -44,15 +43,6 @@ export class ProfileComponent implements OnInit {
 
     ngOnInit(): void {
         this.fetchProfileData(this.editForm);
-
-        this.catalogService.getMyRecipes().subscribe({
-            next: (recipes) => {
-                this.allRecipes = recipes;
-            },
-            error: (error) => {
-                alert('Error fetching my recipes!');
-            }
-        });
     }
 
     triggerFileInput(fileInput: HTMLInputElement) {
@@ -69,9 +59,6 @@ export class ProfileComponent implements OnInit {
         this.authService.updateAvatar(this.fileForm.value.image).subscribe({
             next: () => {
                 this.fetchProfileData(null);
-            },
-            error: (error) => {
-                console.error('Error updating Avatar:', error);
             }
         });
 
@@ -84,15 +71,13 @@ export class ProfileComponent implements OnInit {
             email: this.editForm.value.email,
             username: this.editForm.value.username,
             password: this.editForm.value.passGroup.password,
+            rePass: this.editForm.value.passGroup.rePass
         }
 
         this.authService.updateProfile(updatedProfile).subscribe({
             next: (updatedProfile) => {
-                this.fetchProfileData(null);
+                this.ngOnInit();
                 this.editForm.reset();
-            },
-            error: (error) => {
-                console.error('Error updating profile:', error);
             }
         })
     }
@@ -124,9 +109,6 @@ export class ProfileComponent implements OnInit {
             next: () => {
                 this.fetchProfileData(null)
                 this.router.navigate(['/']);
-            },
-            error: (error) => {
-                alert('Error deleting the profile!');
             }
         })
     }
@@ -139,9 +121,6 @@ export class ProfileComponent implements OnInit {
                 if (form) {
                     form.patchValue({ email: profile.email, username: profile.username });
                 }
-            },
-            error: (error) => {
-                alert('Error getting profile!');
             }
         })
     }
