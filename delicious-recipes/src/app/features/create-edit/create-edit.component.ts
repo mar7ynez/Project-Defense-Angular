@@ -59,7 +59,7 @@ export class CreateEditComponent implements OnInit {
         const ownerId = recipeData._ownerId;
 
         if (userId !== ownerId) {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/404']);
         }
 
         this.createAndEditForm.patchValue({
@@ -77,9 +77,6 @@ export class CreateEditComponent implements OnInit {
 
           this.ingredients.push(ingredientForm);
         });
-      },
-      error: error => {
-        alert('Error fetching recipe data!');
       }
     });
   }
@@ -89,9 +86,6 @@ export class CreateEditComponent implements OnInit {
       this.catalogService.edit(this.createAndEditForm.value, this.recipeId).subscribe({
         next: () => {
           this.router.navigate(['/', this.recipeId, 'details']);
-        },
-        error: error => {
-          alert('Error updating the recipe!');
         }
       });
 
@@ -101,10 +95,6 @@ export class CreateEditComponent implements OnInit {
     this.catalogService.create(this.createAndEditForm.value).subscribe({
       next: () => {
         this.router.navigate(['/catalog']);
-      },
-      error: error => {
-        console.log(error);
-        alert('Error creating new recipe!');
       }
     })
   }
