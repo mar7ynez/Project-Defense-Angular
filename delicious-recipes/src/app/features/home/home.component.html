@@ -15,7 +15,9 @@
     <div class="buttons-wrapper">
         <div class="inner-wrapper">
             <button routerLink="/catalog" class="button"><i class="fa-solid fa-utensils"> </i> RECIPES</button>
+            @if (!isAuth){
             <button routerLink="/register" class="button"><i class="fa-solid fa-lock"> </i> SIGN UP</button>
+            }
         </div>
     </div>
 </div>
