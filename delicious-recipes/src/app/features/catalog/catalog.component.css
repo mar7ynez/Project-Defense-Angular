@@ -1,20 +1,28 @@
 .catalog-content {
-    margin: 40px;
+    margin: 50px 5px;
     min-height: 100vh;
-    /* background: linear-gradient(180deg, rgba(183, 183, 187, 0.315) 0%, rgba(183, 183, 187, 0.096) 50%, rgba(183, 183, 187, 0.315) 100%); */
 }
 
-.search-wrapper {
-    padding: 20px;
-    display: flex;
+.search-form {
     justify-content: center;
     justify-items: center;
 }
 
+.search-bar-wrapper {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+}
+
+.search-icon {
+    position: absolute;
+    padding: 13px;
+}
+
 .search-bar {
     font-size: 17px;
-    padding: 0px 45px;
-    width: 240px;
+    padding-inline-start: 35px;
+    width: 100%;
     height: 37px;
     color: #ffffff;
     border: 2px solid rgb(85, 83, 65);
@@ -23,17 +31,7 @@
     box-shadow: 1px 0px 3px 2px rgb(85, 83, 65);
 }
 
-.search-wrapper>i {
-    margin-top: 5px;
-    font-size: 20px;
-    padding: 7px 0px;
-    max-width: fit-content;
-    display: inline-block;
-    position: absolute;
-    margin-right: 365px;
-}
-
-.search-wrapper>button {
+.search-bar-wrapper>button {
     font-family: "Montserrat", sans-serif;
     padding: 5px 10px;
     margin-left: 10px;
@@ -52,16 +50,14 @@
     -webkit-transition-duration: 0.4s;
     /* Safari */
     transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    cursor: pointer;
+    width: 100px;
 }
 
-.search-wrapper>button:hover {
+.search-bar-wrapper>button:hover {
     background-color: rgb(146, 148, 137);
 }
 
-.search-wrapper>button:after {
+.search-bar-wrapper>button:after {
     content: "";
     background: #bbb49f;
     display: block;
@@ -74,7 +70,7 @@
     transition: all 0.8s
 }
 
-.search-wrapper>button:active:after {
+.search-bar-wrapper>button:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
@@ -88,34 +84,4 @@
     justify-self: center;
     margin-top: 150px;
     letter-spacing: 1px;
-}
-
-@media(max-width: 512px) {
-    .search-bar {
-        width: 150px;
-    }
-
-    .search-wrapper>i {
-        margin-left: 90px;
-    }
-}
-
-@media(max-width: 440px) {
-    .search-bar {
-        width: 80px;
-    }
-
-    .search-wrapper>i {
-        margin-left: 140px;
-    }
-}
-
-@media(max-width: 372px) {
-    .search-bar {
-        width: 30px;
-    }
-
-    .search-wrapper>i {
-        margin-left: 200px;
-    }
 }
