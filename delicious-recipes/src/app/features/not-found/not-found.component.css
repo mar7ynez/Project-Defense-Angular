@@ -1,6 +1,6 @@
 .not-found-wrapper {
     background: none;
-    background-color: rgba(208, 223, 230, 0.616);
+    background-color: rgb(231, 235, 236);
     min-height: 100vh;
     font-family: "Montserrat", sans-serif;
     width: 100%;
@@ -35,11 +35,11 @@
     padding: 10px 100px;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(259deg, rgba(123, 217, 245, 1) 0%, rgba(49, 122, 113, 1) 50%, rgba(123, 217, 245, 1) 100%);
+    background: linear-gradient(51deg, rgba(36, 92, 92, 0.897) 0%, rgba(23, 143, 137, 0.87) 50%, rgba(36, 92, 92, 0.897) 100%);
     text-decoration: unset;
     color: aliceblue;
 }
 
 .go-home-btn:hover {
-    background: linear-gradient(259deg, rgba(123, 217, 245, 1) 0%, rgba(45, 163, 148, 1) 50%, rgba(123, 217, 245, 1) 100%);
+    background: linear-gradient(51deg, rgba(39, 112, 112, 0.897) 0%, rgba(19, 173, 165, 0.87) 50%, rgba(39, 112, 112, 0.897) 100%);
 }
