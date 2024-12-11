@@ -1,7 +1,7 @@
 <nav class="navigation">
     <div class="nav-container">
         <ul class="nav-buttons">
-            <a routerLink="/" class="logo">DELCIOUS RECIPES</a>
+            <a routerLink="/" class="logo">DELICIOUS RECIPES</a>
 
             <li>
                 <a routerLink="/catalog" class="nav-btn">RECIPES</a>
@@ -11,12 +11,9 @@
             <li>
                 <a routerLink="/create" class="nav-btn">CREATE</a>
             </li>
-            <li>
-                <a routerLink="/profile" class="nav-btn">PROFILE</a>
-            </li>
-            <li>
-                <a (click)="onLogout($event)" class="nav-btn">LOGOUT</a>
-            </li>
+            <img (click)="onProfile($event)"
+                [src]="profile?.image || 'https://www.pngitem.com/pimgs/m/551-5510463_default-user-image-png-transparent-png.png'"
+                class="user-img">
             }
 
             @if(!authenticationService.isAuth) {
@@ -27,7 +24,35 @@
                 <a routerLink="/register" class="nav-btn">REGISTER</a>
             </li>
             }
+
         </ul>
+
+        <div [class]="!isProfileToggled ? 'hidden' : 'open-menu'" class="sub-menu-wrapper">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <img [src]="profile?.image || 'https://www.pngitem.com/pimgs/m/551-5510463_default-user-image-png-transparent-png.png'"
+                        class="user-img">
+                    <h2>{{'@'}}{{profile?.username}}</h2>
+                </div>
+            </div>
+
+            <a routerLink="/dashboard" class="sub-menu-link">
+                <i class="fa-solid fa-utensils"></i>
+                <p>My Recipes</p>
+                <span>></span>
+            </a>
+            <a routerLink="/profile" class="sub-menu-link">
+                <i class="fa-solid fa-user"></i>
+                <p>Edit Profile</p>
+                <span>></span>
+            </a>
+            <a class="sub-menu-link" (click)="onLogout($event)">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p>Logout</p>
+                <span>></span>
+            </a>
+        </div>
+
         <div class="hamburger-menu">
             &#9776; <!-- Hamburger icon (3 horizontal bars) -->
         </div>

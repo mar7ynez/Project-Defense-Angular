@@ -9,34 +9,35 @@
 
 .nav-buttons {
     display: flex;
-    align-items: center;
     width: 100%;
     box-sizing: border-box;
-    padding: 5px 40px;
+    padding: 0px 40px;
 }
 
 .nav-buttons>li {
     list-style-type: none;
-    margin: 25px;
+    margin: 25px 10px;
     max-width: 100px;
 }
 
 .nav-btn,
 .logo {
-    padding: 20px;
+    margin-right: 50px;
     text-decoration: none;
     color: rgb(41, 40, 40);
     font-family: "Lexend", sans-serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 20px;
-    margin-right: 15px;
+    font-size: 18px;
+}
+
+.logo {
+    padding: 25px;
 }
 
 .nav-btn:hover,
 .logo:hover {
     font-weight: 400;
-    font-size: 19px;
     cursor: pointer;
     color: #121524;
 }
@@ -47,6 +48,99 @@
 
 .nav-buttons>.logo {
     margin-right: auto;
+}
+
+.user-img {
+    border-radius: 100%;
+    max-width: 46px;
+    max-height: 43px;
+    margin: 13px 15px;
+    width: 100%;
+    border: 1px solid rgb(139, 132, 132);
+}
+
+.user-img:hover {
+    box-shadow: 0px 0px 2px 2px rgb(165, 161, 161);
+    cursor: pointer;
+}
+
+.sub-menu-wrapper {
+    border-radius: 10px;
+    top: 100%;
+    right: 1%;
+    position: absolute;
+    width: 320px;
+    margin: 10px;
+    background-color: #505658b9;
+    background: linear-gradient(292deg, rgb(39, 38, 39) 0%, rgb(73, 73, 73) 50%, rgb(39, 38, 39) 100%);
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0px 0px 3px 2px #beb7b7;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrapper.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info>h2 {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.user-info>.user-img {
+    margin: 0px;
+    padding: 0px;
+    margin-right: 20px;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
+.sub-menu-link {
+    all: unset;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 25px 20px;
+}
+
+.sub-menu-link:hover {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sub-menu-link>p {
+    width: 100%;
+}
+
+.sub-menu-link>span {
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover>span {
+    transform: translateX(5px);
+}
+
+.sub-menu-link>i {
+    width: 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 100%;
+    margin-right: 30px;
 }
 
 @media (max-width: 1024px) {
@@ -68,7 +162,7 @@
 .hamburger-menu {
     display: none;
     font-size: 30px;
-    color: aliceblue;
+    color: rgb(41, 40, 40);
     cursor: pointer;
     padding: 10px;
 }
