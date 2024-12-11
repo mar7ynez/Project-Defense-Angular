@@ -81,6 +81,7 @@
 }
 
 .no-result {
+    color: rgba(238, 235, 235, 0.918);
     font-family: "Montserrat", sans-serif;
     font-size: 24px;
     text-align: center;
