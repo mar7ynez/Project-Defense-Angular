@@ -1,12 +1,10 @@
 /* Set .details-card to full height of the viewport */
 .details-card {
-    /* margin: 15px; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     padding: 25px;
-    /* background-color: rgba(27, 26, 26, 0.89); */
     background-image: url('../../../assets/images/detailsBack.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -22,9 +20,15 @@
     width: 650px;
     height: 350px;
     border-radius: 10px;
-    margin-bottom: 30px;
-    border: 2px solid rgba(173, 149, 132, 0.945);
-    box-shadow: 0px 0px 8px;
+    box-shadow: 0px 0px 5px 1px;
+}
+
+.cooking-time {
+    font-family: "Unica One", serif;
+    color: rgba(255, 255, 255, 0.918);
+    display: flex;
+    justify-self: flex-end;
+    letter-spacing: 1px;
 }
 
 .card-title {
@@ -42,7 +46,7 @@ h2.card-title {
 .card-title {
     font-family: "Unica One", serif;
     letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.76);
+    color: rgba(255, 255, 255, 0.918);
     font-size: 24px;
 }
 
@@ -51,7 +55,7 @@ h2.card-title {
 }
 
 .card-text {
-    color: rgba(255, 255, 255, 0.76);
+    color: rgba(255, 255, 255, 0.918);
     font-family: "Montserrat", sans-serif;
     max-width: 900px;
     font-size: 17px;
@@ -62,7 +66,7 @@ h2.card-title {
 }
 
 .ingredient-list {
-    color: rgba(255, 255, 255, 0.76);
+    color: rgba(255, 255, 255, 0.918);
     font-size: 20px;
     text-indent: 20px;
     margin: 20px;
@@ -71,7 +75,6 @@ h2.card-title {
 
 .detail-buttons {
     display: flex;
-    /* margin-bottom: 10px; */
     border-bottom: 5px solid rgba(255, 255, 255, 0.76);
     border-radius: 5px;
 }
@@ -90,7 +93,7 @@ h2.card-title {
     font-size: 13px;
     color: #FFFFFF;
     padding: 10px 22px;
-    /* width: 200px; */
+    width: 120px;
     text-align: center;
     -webkit-transition-duration: 0.4s;
     /* Safari */
@@ -149,7 +152,6 @@ h2.card-title {
 
 .like-counter {
     justify-items: center;
-    margin-bottom: 20px;
     background: rgb(233, 50, 50);
     max-width: 60px;
     border-radius: 10px;
