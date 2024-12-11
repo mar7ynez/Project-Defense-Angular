@@ -1,6 +1,5 @@
 import { Component, OnInit, signal } from "@angular/core";
 import { ErrorService } from "../../core/services/error.service";
-import { ApiError } from "../../shared/types/error";
 
 @Component({
     selector: 'app-error',
