@@ -43,34 +43,18 @@ export class AuthFormComponent implements OnInit {
     const rePass = this.passwordGroup?.get('rePass')?.value;
 
     if (!this.isLoginMode) {
-      if (password !== rePass) {
-        return;
-      }
-
       this.authService.register({ email, username, password, rePass }).subscribe({
         next: (userData) => {
-          this.router.navigateByUrl('/catalog');
-        },
-        error: (error) => {
-          console.log(error)
-          alert(error.error);
+          this.router.navigateByUrl('/');
         }
       });
 
       return;
     }
 
-    if (!email || password.length < 8) {
-      return;
-    }
-
     this.authService.login({ email, password }).subscribe({
       next: (userData) => {
-        this.router.navigateByUrl('/catalog');
-      },
-      error: (error) => {
-        console.log(error);
-        alert(error.error);
+        this.router.navigateByUrl('/');
       }
     });
   }
