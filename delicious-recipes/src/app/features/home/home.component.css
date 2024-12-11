@@ -17,6 +17,7 @@
 }
 
 .bullet-content {
+    color: rgba(238, 235, 235, 0.918);
     padding: 50px 65px;
     display: block;
     text-indent: 10px;
@@ -43,7 +44,7 @@
     border-radius: 10px;
     cursor: pointer;
     margin: 10px;
-    background: linear-gradient(36deg, rgb(66, 66, 59) 0%, rgba(101, 85, 85, 0.9752275910364145) 50%, rgb(66, 66, 64) 100%);
+    background: linear-gradient(36deg, rgb(61, 61, 60) 0%, rgba(87, 86, 86, 0.975) 50%, rgb(59, 59, 59) 100%);
     width: 200px;
     height: 50px;
     font-family: "Montserrat", sans-serif;
@@ -54,7 +55,7 @@
 
 button:hover {
     font-weight: 600;
-    background: linear-gradient(36deg, rgba(133, 134, 121, 1) 0%, rgba(101, 85, 85, 0.9752275910364145) 50%, rgba(133, 134, 121, 1) 100%);
+    background: linear-gradient(36deg, rgb(132, 133, 131) 0%, rgba(61, 60, 60, 0.975) 50%, rgb(124, 124, 123) 100%);
     box-shadow: 0px 0px 3px 3px rgb(129, 124, 119);
 }
 
@@ -69,7 +70,7 @@ button:hover {
 .top-recipes-wrapper {
     margin: 50px 0px;
     font-family: "Unica One", serif;
-    color: rgba(255, 255, 255, 0.918);
+    color: rgba(238, 235, 235, 0.918);
     font-size: 24px;
     word-spacing: 3px;
     letter-spacing: 2px;
@@ -80,7 +81,7 @@ button:hover {
     text-align: center;
     margin: 20px;
     padding: 0px 50px;
-    border-bottom: 3px solid rgb(0, 0, 0);
+    border-bottom: 5px solid rgb(167, 167, 167);
     border-radius: 4px;
 }
 

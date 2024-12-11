@@ -1,7 +1,7 @@
 .dashboard-wrapper {
     margin: 50px 0px;
     font-family: "Unica One", serif;
-    color: rgba(255, 255, 255, 0.918);
+    color: rgba(238, 235, 235, 0.918);
     font-size: 24px;
     word-spacing: 3px;
     letter-spacing: 2px;
@@ -12,7 +12,7 @@
     text-align: center;
     margin: 20px;
     padding: 0px 50px;
-    border-bottom: 3px solid rgb(0, 0, 0);
+    border-bottom: 5px solid rgb(167, 167, 167);
     border-radius: 4px;
 }
 

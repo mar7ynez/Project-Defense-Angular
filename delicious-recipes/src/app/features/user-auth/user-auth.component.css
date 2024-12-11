@@ -2,16 +2,17 @@
     padding: 200px 0;
     display: flex;
     justify-content: center;
+    color: rgba(238, 235, 235, 0.979);
 }
 
 .fields-wrapper {
     max-width: 400px;
     width: 100%;
-    border: 1px solid rgb(163, 128, 128);
+    border: 1px solid rgb(163, 163, 163);
     border-radius: 5px;
     padding: 70px 170px 140px;
-    background: linear-gradient(52deg, rgba(59, 71, 73, 0.692) 0%, rgba(26, 87, 101, 0.795) 54%, rgba(228, 235, 235, 0.788) 89%);
-    box-shadow: 0px 0px 5px;
+    background: linear-gradient(51deg, rgba(8, 36, 48, 0.918) 0%, rgba(30, 76, 83, 0.842) 50%, rgba(8, 36, 48, 0.925) 100%);
+    box-shadow: 0px 0px 3px 1px;
 }
 
 .fields-wrapper>h2 {
@@ -22,6 +23,7 @@
 }
 
 .auth-input {
+    color: rgba(238, 235, 235, 0.979);
     padding: 2px;
     width: 100%;
     max-width: 400px;
@@ -30,7 +32,7 @@
     margin-bottom: 40px;
     border-radius: 4px;
     border: none;
-    background-color: rgba(240, 248, 255, 0.815);
+    background-color: rgba(34, 34, 34, 0.945);
 }
 
 .auth-label {
@@ -46,6 +48,7 @@
 }
 
 .auth-btn {
+    color: rgba(238, 235, 235, 0.979);
     font-size: 18px;
     letter-spacing: 1px;
     padding: 10px;
@@ -53,7 +56,7 @@
     padding-left: 65px;
     border-radius: 4px;
     border: none;
-    background: linear-gradient(270deg, rgb(141, 222, 228) 23%, rgba(9, 171, 232, 1) 50%, rgba(124, 217, 224, 1) 77%);
+    background: linear-gradient(51deg, rgba(36, 92, 92, 0.897) 0%, rgba(23, 143, 137, 0.87) 50%, rgba(36, 92, 92, 0.897) 100%);
     transition-duration: 0.4s;
     text-decoration: none;
     overflow: hidden;
@@ -63,11 +66,12 @@
 }
 
 .auth-btn:hover {
-    background: linear-gradient(270deg, rgb(166, 234, 240) 23%, rgb(13, 124, 165) 50%, rgb(166, 234, 240) 77%);
+    background: linear-gradient(51deg, rgba(39, 112, 112, 0.897) 0%, rgba(19, 173, 165, 0.87) 50%, rgba(39, 112, 112, 0.897) 100%);
 }
 
 .disabled, .disabled:hover {
-    background: linear-gradient(270deg, rgb(98, 104, 104) 23%, rgb(111, 135, 143) 50%, rgb(98, 104, 104) 77%);
+    color: rgba(136, 136, 136, 0.979);
+    background: linear-gradient(270deg, rgb(72, 73, 73) 23%, rgb(84, 87, 88) 50%, rgb(70, 73, 73) 77%);
     cursor: not-allowed;
 }
 
@@ -81,6 +85,7 @@
 }
 
 .switch-links>a {
+    color: rgba(238, 235, 235, 0.979);
     justify-content: center;
     text-decoration: none;
     display: flex;

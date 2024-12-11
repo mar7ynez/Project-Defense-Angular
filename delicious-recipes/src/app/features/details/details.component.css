@@ -1,4 +1,3 @@
-/* Set .details-card to full height of the viewport */
 .details-card {
     display: flex;
     flex-direction: column;
@@ -20,12 +19,12 @@
     width: 650px;
     height: 350px;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px 1px;
+    box-shadow: 0px 0px 5px 1px white;
 }
 
 .cooking-time {
     font-family: "Unica One", serif;
-    color: rgba(255, 255, 255, 0.918);
+    color: rgba(238, 235, 235, 0.918);
     display: flex;
     justify-self: flex-end;
     letter-spacing: 1px;
@@ -38,7 +37,7 @@
 
 h2.card-title {
     letter-spacing: 8px;
-    border-bottom: 5px solid rgba(255, 255, 255, 0.76);
+    border-bottom: 5px solid rgb(167, 167, 167);
     border-radius: 5px;
     max-width: 900px;
 }
@@ -46,7 +45,7 @@ h2.card-title {
 .card-title {
     font-family: "Unica One", serif;
     letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.918);
+    color: rgba(238, 235, 235, 0.918);
     font-size: 24px;
 }
 
@@ -55,7 +54,7 @@ h2.card-title {
 }
 
 .card-text {
-    color: rgba(255, 255, 255, 0.918);
+    color: rgba(238, 235, 235, 0.918);
     font-family: "Montserrat", sans-serif;
     max-width: 900px;
     font-size: 17px;
@@ -66,7 +65,7 @@ h2.card-title {
 }
 
 .ingredient-list {
-    color: rgba(255, 255, 255, 0.918);
+    color: rgba(238, 235, 235, 0.918);
     font-size: 20px;
     text-indent: 20px;
     margin: 20px;
@@ -75,7 +74,7 @@ h2.card-title {
 
 .detail-buttons {
     display: flex;
-    border-bottom: 5px solid rgba(255, 255, 255, 0.76);
+    border-bottom: 5px solid rgb(167, 167, 167);
     border-radius: 5px;
 }
 
@@ -87,7 +86,7 @@ h2.card-title {
     margin: 10px;
     background-color: rgb(236, 162, 23);
     border-radius: 8px;
-    border: 1px solid rgba(196, 207, 221, 0.767);
+    border: 1px solid rgba(203, 208, 214, 0.767);
     position: relative;
     border: none;
     font-size: 13px;
@@ -112,17 +111,14 @@ h2.card-title {
 }
 
 .edit-btn:hover {
-    box-shadow: 1px 1px 1px #292626;
-    background-color: rgb(196, 130, 8);
+    background-color: rgb(230, 135, 11);
 }
 
 .delete-btn:hover {
-    box-shadow: 1px 1px 1px #292626;
-    background-color: rgb(202, 39, 39);
+    background-color: rgb(194, 26, 26);
 }
 
 .like-btn:hover {
-    box-shadow: 1px 1px 1px #292626;
     background-color: rgb(59, 97, 177);
 }
 

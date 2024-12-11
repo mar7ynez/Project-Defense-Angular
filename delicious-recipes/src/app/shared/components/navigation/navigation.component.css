@@ -3,7 +3,7 @@
     position: relative;
     width: 100vw;
     background: rgb(48, 46, 48);
-    background: linear-gradient(292deg, rgb(39, 38, 39) 0%, rgba(73, 73, 73, 1) 50%, rgb(39, 38, 39) 100%);
+    background: linear-gradient(129deg, rgb(48, 47, 47) 0%, rgb(56, 56, 56) 50%, rgb(34, 34, 34) 100%);
     box-shadow: 1px 1px 5px 0px rgb(14, 13, 13);
 }
 
@@ -24,7 +24,7 @@
 .logo {
     margin-right: 50px;
     text-decoration: none;
-    color: rgb(41, 40, 40);
+    color: rgb(236, 236, 236);
     font-family: "Lexend", sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -39,7 +39,7 @@
 .logo:hover {
     font-weight: 400;
     cursor: pointer;
-    color: #121524;
+    color: #ffffff;
 }
 
 .nav-buttons>.nav-btn {
@@ -71,10 +71,9 @@
     position: absolute;
     width: 320px;
     margin: 10px;
-    background-color: #505658b9;
-    background: linear-gradient(292deg, rgb(39, 38, 39) 0%, rgb(73, 73, 73) 50%, rgb(39, 38, 39) 100%);
+    background: linear-gradient(129deg, rgb(48, 47, 47) 0%, rgb(56, 56, 56) 50%, rgb(34, 34, 34) 100%);
     font-family: "Poppins", sans-serif;
-    box-shadow: 0px 0px 3px 2px #beb7b7;
+    box-shadow: 0px 0px 3px 1px #beb7b7;
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
@@ -86,7 +85,7 @@
 
 .sub-menu {
     padding: 20px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(136, 136, 136);
 }
 
 .user-info {
@@ -97,6 +96,7 @@
 .user-info>h2 {
     font-weight: 600;
     font-size: 20px;
+    color: white;
 }
 
 .user-info>.user-img {
@@ -123,10 +123,12 @@
 }
 
 .sub-menu-link>p {
+    color: white;
     width: 100%;
 }
 
 .sub-menu-link>span {
+    color: white;
     font-size: 22px;
     transition: transform 0.5s;
 }
@@ -136,9 +138,10 @@
 }
 
 .sub-menu-link>i {
+    color: white;
     width: 20px;
     padding: 10px;
-    background-color: white;
+    background-color: rgb(29, 29, 29);
     border-radius: 100%;
     margin-right: 30px;
 }

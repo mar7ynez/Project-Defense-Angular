@@ -1,4 +1,5 @@
 .profile-wrapper {
+    color: rgba(238, 235, 235, 0.979);
     background-image: none;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,7 +10,7 @@
 }
 
 .profile-card {
-    background: linear-gradient(259deg, rgba(205, 218, 223, 0.63) 0%, rgba(120, 147, 151, 0.555) 52%, rgba(177, 189, 194, 0.589) 92%);
+    background: linear-gradient(51deg, rgba(8, 36, 48, 0.918) 0%, rgba(28, 66, 71, 0.267) 50%, rgba(8, 36, 48, 0.925) 100%);
     width: 30%;
     box-shadow: 4px 1px 7px 1px black;
 }
@@ -53,6 +54,7 @@
 
 .profile-btn-wrapper,
 .edit-form-button {
+    color: rgba(238, 235, 235, 0.979);
     width: 100%;
     display: grid;
     justify-content: center;
@@ -65,6 +67,7 @@
 
 .profile-btn,
 .edit-form-button {
+    color: rgba(238, 235, 235, 0.979);
     padding: 5px 10px;
     margin-top: 20px;
     border: none;
@@ -73,20 +76,20 @@
     font-size: 14px;
     word-spacing: 1px;
     box-shadow: 0px 0px 2px 1px rgb(82, 206, 212);
-    background: linear-gradient(270deg, rgba(132, 213, 219, 0.87) 23%, rgba(90, 192, 199, 0.842) 50%, rgba(107, 196, 202, 0.856) 77%);
-
+    background: linear-gradient(51deg, rgba(36, 92, 92, 0.897) 0%, rgba(23, 143, 137, 0.87) 50%, rgba(36, 92, 92, 0.897) 100%);
 }
 
 .profile-btn:hover,
 .edit-form-button:hover {
     cursor: pointer;
-    background: linear-gradient(270deg, rgba(75, 183, 190, 0.87) 23%, rgba(101, 227, 238, 0.842) 50%, rgba(64, 199, 209, 0.747) 77%);
+    background: linear-gradient(51deg, rgba(39, 112, 112, 0.897) 0%, rgba(19, 173, 165, 0.87) 50%, rgba(39, 112, 112, 0.897) 100%);
     box-shadow: 0px 0px 2px 2px rgb(82, 206, 212);
 }
 
 .disabled,
 .disabled:hover {
-    background: linear-gradient(270deg, rgb(98, 104, 104) 23%, rgb(111, 135, 143) 50%, rgb(98, 104, 104) 77%);
+    color: rgba(136, 136, 136, 0.979);
+    background: linear-gradient(270deg, rgb(72, 73, 73) 23%, rgb(84, 87, 88) 50%, rgb(70, 73, 73) 77%);
     cursor: not-allowed;
     box-shadow: 0px 0px 2px 1px rgb(95, 114, 116);
 }
@@ -94,7 +97,7 @@
 .edit-profile-form {
     width: 70%;
     box-shadow: 4px 1px 7px 1px black;
-    background: linear-gradient(259deg, rgba(205, 218, 223, 0.562) 0%, rgba(118, 163, 170, 0.507) 52%, rgba(177, 189, 194, 0.589) 92%);
+    background: linear-gradient(51deg, rgba(8, 26, 34, 0.842) 0%, rgba(30, 76, 83, 0.671) 50%, rgba(8, 26, 34, 0.842) 100%);
 }
 
 .edit-heading {
