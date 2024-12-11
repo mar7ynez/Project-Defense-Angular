@@ -1,11 +1,17 @@
 <div class="catalog-content">
-    <form class="search-wrapper" (ngSubmit)="onSearch()">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input class="search-bar" type="text" name="search" id="search" value="" [(ngModel)]="searchQuery">
-        <button type="submit">Search</button>
-    </form>
+    <div class="search-wrapper">
+        <form class="search-form" (ngSubmit)="onSearch()">
+            <div class="search-bar-wrapper">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <input class="search-bar" type="text" name="search" id="search" value="" [(ngModel)]="searchQuery">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </div>
     @if (!this.recipes.length) {
-        <div class="no-result">NO RESULTS FOUND</div>
+    <div class="no-result">NO RESULTS FOUND</div>
     }
     <catalog-item [allRecipes]="recipes"></catalog-item>
 </div>
