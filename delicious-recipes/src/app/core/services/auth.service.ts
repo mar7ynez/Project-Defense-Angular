@@ -30,12 +30,18 @@ export class AuthService implements OnDestroy {
 
     register(userData: User) {
         return this.http.post<User>(`${host}${endpoints.register}`, userData)
-            .pipe(tap((userData) => this.user$$.next(userData)));
+            .pipe(tap((userData) => {
+                this.getProfile().subscribe();
+                this.user$$.next(userData)
+            }));
     }
 
     login(userData: User) {
         return this.http.post<User>(`${host}${endpoints.login}`, userData)
-            .pipe(tap((userData) => this.user$$.next(userData)));
+            .pipe(tap((userData) => {
+                this.getProfile().subscribe();
+                this.user$$.next(userData);
+            }));
     }
 
     logout() {
@@ -57,12 +63,12 @@ export class AuthService implements OnDestroy {
 
     updateProfile(updatedProfile: User) {
         return this.http.put<User>(`${host}${endpoints.profile}`, updatedProfile)
-        .pipe(tap((userData) => this.user$$.next(userData)));
+            .pipe(tap((userData) => this.user$$.next(userData)));
     }
 
     deleteProfile() {
         return this.http.delete(`${host}${endpoints.profile}`)
-        .pipe(tap((userData) => this.user$$.next(null)));
+            .pipe(tap((userData) => this.user$$.next(null)));
     }
 
     ngOnDestroy(): void {
