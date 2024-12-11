@@ -3,6 +3,7 @@ import { CatalogItemComponent } from "../catalog/catalog-item/catalog-item.compo
 import { Recipe } from "../../shared/types/recipe";
 import { RouterLink } from "@angular/router";
 import { CatalogService } from "../../core/services/recipe.service";
+import { AuthService } from "../../core/services/auth.service";
 
 @Component({
     selector: 'app-home',
@@ -14,16 +15,16 @@ import { CatalogService } from "../../core/services/recipe.service";
 
 export class HomeComponent implements OnInit {
     recipes: Recipe[] = [];
+    isAuth: boolean = false;
 
-    constructor(private catalogService: CatalogService) { }
+    constructor(private catalogService: CatalogService, private authService: AuthService) { }
 
     ngOnInit(): void {
+        this.isAuth = this.authService.isAuth;
+
         this.catalogService.getMostLiked().subscribe({
             next: (mostLikedRecipes) => {
                 this.recipes = mostLikedRecipes
-            },
-            error: (error) => {
-                alert('Error getting most liked recipes!');
             }
         })
     }
