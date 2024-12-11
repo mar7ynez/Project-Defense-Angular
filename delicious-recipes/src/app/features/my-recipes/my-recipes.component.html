@@ -1,0 +1,7 @@
+<div class="dashboard-wrapper">
+    <h2 class="my-recipes-heading">MY RECIPES</h2>
+    @if (!myRecipes.length) {
+    <div class="no-result">NO RESULTS FOUND</div>
+    }
+    <catalog-item [allRecipes]="myRecipes"></catalog-item>
+</div>

@@ -1,0 +1,26 @@
+.dashboard-wrapper {
+    margin: 50px 0px;
+    font-family: "Unica One", serif;
+    color: rgba(255, 255, 255, 0.918);
+    font-size: 24px;
+    word-spacing: 3px;
+    letter-spacing: 2px;
+    justify-items: center;
+}
+
+.my-recipes-heading {
+    text-align: center;
+    margin: 20px;
+    padding: 0px 50px;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    border-radius: 4px;
+}
+
+.no-result {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    text-align: center;
+    justify-self: center;
+    margin: 150px;
+    letter-spacing: 1px;
+}
